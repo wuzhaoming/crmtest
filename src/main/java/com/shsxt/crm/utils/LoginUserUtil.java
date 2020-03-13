@@ -1,8 +1,8 @@
 package com.shsxt.crm.utils;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.lang3.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Tony on 2016/8/23.

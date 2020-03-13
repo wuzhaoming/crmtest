@@ -1,6 +1,7 @@
 package com.shsxt.crm.utils;
 
-import com.shsxt.crm.exceptions.ParamsException;
+
+import com.shsxt.exception.ParamsException;
 
 public class AssertUtil {
 

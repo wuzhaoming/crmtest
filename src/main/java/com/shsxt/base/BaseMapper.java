@@ -1,6 +1,7 @@
 package com.shsxt.base;
 
 
+import com.shsxt.crm.vo.SaleChance;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
@@ -75,6 +76,7 @@ public interface BaseMapper<T,ID> {
      * @return
      */
     public Integer deleteBatch(ID[] ids) throws DataAccessException;
+
 
 
 }

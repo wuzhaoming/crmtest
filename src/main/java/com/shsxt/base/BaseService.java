@@ -1,8 +1,13 @@
 package com.shsxt.base;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class BaseService<T,ID> {
 
@@ -99,4 +104,18 @@ public abstract class BaseService<T,ID> {
     public Integer deleteBatch(ID[] ids) throws DataAccessException{
         return baseMapper.deleteBatch(ids);
     }
+    /**
+     * 从表中查询数据，并返回一个Map集合
+     */
+    public Map<String,Object> queryByParamsForData(BaseQuery baseQuery){
+        Map<String,Object> result=new HashMap<>();
+        PageHelper.startPage(baseQuery.getPage(),baseQuery.getRows());
+        List<T> ts = selectByParams(baseQuery);
+        PageInfo<T> pageInfo=new PageInfo<T>(ts);
+        result.put("total",pageInfo.getTotal());
+        result.put("rows",pageInfo.getList());
+        return result;
+    }
+
+
 }
